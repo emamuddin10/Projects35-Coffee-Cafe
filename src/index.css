@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+@theme {
+    /* --font-*: initial; */
+    --font-sans: "Roboto", serif;
+    /* --font-sans: "Oswald", "sans-serif"; */
+   
+    /* --font-roboto: "Roboto", serif; */
+  
+  }
