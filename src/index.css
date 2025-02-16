@@ -11,3 +11,8 @@
     /* --font-roboto: "Roboto", serif; */
   
   }
+
+  a.active{
+    background-color: gray;
+    color: azure;
+  }
