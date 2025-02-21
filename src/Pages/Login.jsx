@@ -1,24 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const {logIn ,setUser} = useContext(AuthContext)
+  const handleLogin=(e)=>{
+     e.preventDefault()
+
+     const form = e.target
+     const email = form.email.value
+     const  password= form.password.value
+     logIn(email,password)
+     .then((loginUser)=>{
+      const user = loginUser.user
+       setUser(user)
+     })
+     .catch((error)=>{
+      alert(error.message)
+     })
+     console.log({email,password})
+  }
   return (
     <div className="flex justify-center items-center ">
       <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl p-10">
         <h1 className="font-semibold text-3xl text-center text-slate-400">Login Your Account</h1>
-        <div className="card-body">
+        <form onSubmit={handleLogin} className="card-body">
           <fieldset className="fieldset">
             <label className="fieldset-label">Email</label>
-            <input type="email" className="input" placeholder="Enter Your Email Address" />
+            <input type="email" name='email' className="input" placeholder="Enter Your Email Address" />
             <label className="fieldset-label">Password</label>
-            <input type="password" className="input" placeholder=" Enter Your Password" />
+            <input type="password" name="password" className="input" placeholder=" Enter Your Password" />
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
             <button className="btn btn-neutral mt-4">Login</button>
           </fieldset>
           <p className="text-center">Don't have an Account ? <Link className='text-red-400 font-semibold text-center' to='/auth/register'>Register</Link></p>
-        </div>
+        </form>
       </div>
     </div>
   );
