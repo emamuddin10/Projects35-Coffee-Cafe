@@ -5,6 +5,7 @@ import RightAside from "../components/MainLayouts/RightAside";
 import Navbar from "../components/Navbar";
 
 const HomeLayouts = () => {
+
   return (
     <div>
       <header>
