@@ -1,24 +1,40 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
 
-  const {createNewUser,setUser}= useContext(AuthContext)
+  const {createNewUser,setUser ,updateUserProfile}= useContext(AuthContext)
+  const [error, setError]= useState("")
+  const navigate = useNavigate()
 
   const handleOnSubmit = (e)=>{
     e.preventDefault()
     // get from data value
     const form = new FormData(e.target)
     const name = form.get("name")
+    
+    if(name.length < 4){
+      setError({ ...error, name: 'name must be more than 4 charectar long'})
+      return
+    }
+
     const photo = form.get("photo")
     const email = form.get("email")
     const password = form.get("password")
     console.log({email,name,photo,password})
+
     createNewUser(email,password)
     .then((result)=>{
       const user = result.user
       setUser(user)
+      updateUserProfile({displayName:name, photoURL:photo})
+      .then(()=>{
+        navigate('/')
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
       console.log(user)
     })
     .catch((error)=>{
@@ -28,6 +44,8 @@ const Register = () => {
     })
 
   }
+
+  console.log("this error",error)
   return (
     <div className="flex justify-center items-center ">
       <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl p-10">
@@ -43,6 +61,9 @@ const Register = () => {
               className="input"
               placeholder="Enter Your Name"
             />
+             {
+              error?.name && (<label className="fieldset-label text-red-400">{error?.name}</label>)
+            }
             <label className="fieldset-label">Photo</label>
             <input
             name="photo"
