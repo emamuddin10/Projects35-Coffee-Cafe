@@ -4,6 +4,7 @@ import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  console.log(import.meta.env.VITE_a)
   return (
     <div className="text-center space-y-3">
       <div className="logo mt-20">
