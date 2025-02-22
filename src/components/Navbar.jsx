@@ -28,7 +28,13 @@ const Navbar = () => {
                 <Link className="font-semibold" to='/career'>Career</Link>
             </div>
             <div className="flex gap-3 items-center">
-                <img src={userImg} alt="" />
+                {
+                    user && user?.email ? <div>
+                        <img src={user?.photoURL} alt="" />
+                        <p>{user?.displayName}</p>
+                    </div>: <img src={userImg} alt="" />
+                }
+                
                 {
                     user ?  <Link to='' onClick={handleLogOut}  className="btn btn-error text-white rounded-none px-5">Log Out</Link> 
                     : 
