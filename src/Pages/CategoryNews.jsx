@@ -3,7 +3,7 @@ import NewsDetail from "../components/NewsCard";
 
 const CategoryNews = () => {
     const {data: arrayNews} = useLoaderData()
-    console.log(arrayNews)
+    // console.log(arrayNews)
     return (
         <div>
             <h1 className="font-bold">Dragon News Home</h1>
