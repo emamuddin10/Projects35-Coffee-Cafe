@@ -7,7 +7,7 @@ const Login = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [error,setError]= useState({})
-  console.log(location)
+  // console.log(location)
   const handleLogin=(e)=>{
      e.preventDefault()
 
@@ -23,7 +23,7 @@ const Login = () => {
      .catch((err)=>{
       setError({ ...error , login: err.code}  )
      })
-     console.log({email,password})
+    //  console.log({email,password})
   }
   return (
     <div className="flex justify-center items-center ">
