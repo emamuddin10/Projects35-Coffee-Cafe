@@ -8,7 +8,7 @@ const NewsCard = (props = {}) => {
   return ( 
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
-        <img src={news.thumbnail_url} alt="News Thumbnail" className="w-full h-96 " />
+        <img  src={news.thumbnail_url} alt="News Thumbnail" className="w-full h-96 rounded-none" />
       </figure>
       <div className="card-body">
         <div className="flex items-center gap-2">
