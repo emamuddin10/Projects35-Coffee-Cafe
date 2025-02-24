@@ -26,6 +26,7 @@ const Navbar = () => {
                 <Link className="font-semibold" to='/'>Home</Link>
                 <Link className="font-semibold" to='/about'>About</Link>
                 <Link className="font-semibold" to='/career'>Career</Link>
+                <Link className="font-semibold" to='/career'>Sports</Link>
             </div>
             <div className="flex gap-3 items-center">
                 {
