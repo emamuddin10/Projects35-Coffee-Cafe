@@ -10,7 +10,7 @@ const Header = () => {
       <div className="logo mt-20">
         <img className="mx-auto" src={logo} alt="" />
       </div>
-      <p className="font-display">Journalism Without Fear or Favour</p>
+      <p className="font-display">Journalism Without Fear or Favours</p>
       <p>{moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}</p>
       <div className="flex items-center gap-2 p-2 bg-slate-200 w-11/12 mx-auto ">
         <span className="bg-red-400 px-3 py-1 text-white">Latest</span>
